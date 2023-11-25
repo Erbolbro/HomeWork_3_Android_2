@@ -1,7 +1,21 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val store = Store()
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
-}
+    val user = User("Erbol", "ул. ковращиков , 34").apply {
+        balance = 50000
+    }
+
+    val scanner = java.util.Scanner(System.`in`)
+
+    println("Все товары в магазине:")
+    store.printAllProducts()
+
+    print("Введите ID товара, который вы хотите купить: ")
+    val productId = scanner.nextInt()
+
+    store.buy(productId, user)
+
+
+    }
+
+
